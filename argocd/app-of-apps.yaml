@@ -12,7 +12,6 @@ spec:
     targetRevision: main
     path: "argocd"
     directory:
-      exclude: "{app-of-apps.yaml}"
       include: "**/*.yaml"
       recurse: true
   destination:
