@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: random-jdr
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/leogout/random-dnd.git
+    path: helm
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - values.yaml
+      values: |
+        github:
+          repository_owner: leogout
+          tag: main
+  destination:
+    namespace: random-jdr
+    name: in-cluster
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true # ArgoCD will create the namespace if it doesn't exist
+      - ApplyOutOfSyncOnly=true # Only apply changes to out-of-sync resources (useful for large apps)
+      - Replace=true # Replace existing resources if they are immutable

@@ -1,0 +1,6 @@
+ingress-nginx:
+  controller:
+    publishService:
+      enabled: true
+    service:
+      type: LoadBalancer
