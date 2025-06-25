@@ -1,0 +1,6 @@
+external-dns:
+  provider: ovh
+  domainFilters:
+  - leogout.fr
+  sources:
+  - ingress
