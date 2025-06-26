@@ -1,5 +1,6 @@
 external-dns:
   provider: ovh
+  logLevel: debug
   env:
   - name: OVH_APPLICATION_KEY
     valueFrom:
