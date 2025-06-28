@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/leogout/random-dnd.git
     path: helm
-    targetRevision: HEAD
+    targetRevision: "v*"
     helm:
       valueFiles:
         - values.yaml
