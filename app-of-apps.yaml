@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/leogout/kube-ovh.git
-    targetRevision: "v*"
+    targetRevision: main
     path: "argocd"
     directory:
       include: "*.yaml"
