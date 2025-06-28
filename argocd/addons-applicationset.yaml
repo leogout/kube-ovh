@@ -9,7 +9,7 @@ spec:
         repoURL: https://github.com/leogout/kube-ovh.git
         revision: HEAD
         tags:
-          - pattern: '*'
+          - pattern: 'v*'
   template:
     metadata:
       name: '{{path.basename}}-{{tag}}'
