@@ -12,7 +12,7 @@ spec:
           - pattern: 'v*'
   template:
     metadata:
-      name: '{{path.basename}}-{{tag}}'
+      name: '{{path.basename}}'
       namespace: argocd
       finalizers:
         - resources-finalizer.argocd.argoproj.io
