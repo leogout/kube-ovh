@@ -7,6 +7,8 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/leogout/kube-ovh.git
+        directories:
+          - path: addons/*
         revision: HEAD
   template:
     metadata:
@@ -20,7 +22,7 @@ spec:
         repoURL: https://github.com/leogout/kube-ovh.git
         targetRevision: main
         # Le chemin vers le chart Helm est le chemin du répertoire découvert par le générateur Git
-        path: 'addons/{{path.basename}}' # Cela se résoudra en "addons/cert-manager", "addons/ingress-nginx", etc.
+        path: '{{path}}' # Cela se résoudra en "addons/cert-manager", "addons/ingress-nginx", etc.
         # Pas besoin de helm.values ici car les values sont contenues dans les charts helm
       destination:
         server: https://kubernetes.default.svc
