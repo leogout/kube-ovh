@@ -3,6 +3,13 @@ kind: Application
 metadata:
   name: random-jdr
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: random-jdr=ghcr.io/leogout/random-jdr-backend
+    argocd-image-updater.argoproj.io/random-jdr.update-strategy: semver
+    argocd-image-updater.argoproj.io/random-jdr.allow-tags: regexp:^v[0-9]+\.[0-9]+\.[0-9]+$
+    argocd-image-updater.argoproj.io/random-jdr.helm.image-spec: github.tag
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/git-branch: main
 spec:
   project: default
   source:
