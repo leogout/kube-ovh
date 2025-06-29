@@ -1,0 +1,7 @@
+argocd-image-updater:
+  config:
+    registries:
+      - name: GitHub Container Registry
+        api_url: https://ghcr.io
+        prefix: ghcr.io
+        credentials: "pullsecret:argocd/docker-config-secret"
