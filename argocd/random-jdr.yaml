@@ -15,14 +15,13 @@ spec:
   source:
     repoURL: https://github.com/leogout/random-dnd.git
     path: helm
-    targetRevision: "v*"
+    targetRevision: "v0.4.0"
     helm:
       valueFiles:
         - values.yaml
-      values: |
-        github:
-          repository_owner: leogout
-          tag: main
+      parameters:
+        - name: 'image.tag'
+          value: 'v0.4.0'
   destination:
     namespace: random-jdr
     name: in-cluster
