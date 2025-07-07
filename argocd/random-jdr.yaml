@@ -20,7 +20,7 @@ spec:
       valueFiles:
         - values.yaml
       parameters:
-        - name: 'image.repository'
+        - name: 'image.registry'
           value: 'ghcr.io/leogout'
         - name: 'image.tag'
           value: 'v0.4.0'
