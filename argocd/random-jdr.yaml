@@ -15,7 +15,8 @@ spec:
   source:
     repoURL: https://github.com/leogout/random-dnd.git
     path: helm
-    targetRevision: "v0.4.0"
+#    targetRevision: "v0.4.0"
+    targetRevision: "main"
     helm:
       valueFiles:
         - values.yaml
@@ -23,7 +24,8 @@ spec:
         - name: 'image.registry'
           value: 'ghcr.io/leogout'
         - name: 'image.tag'
-          value: 'v0.4.0'
+#          value: 'v0.4.0'
+          value: 'latest'
   destination:
     namespace: random-jdr
     name: in-cluster
@@ -35,3 +37,4 @@ spec:
       - CreateNamespace=true # ArgoCD will create the namespace if it doesn't exist
       - ApplyOutOfSyncOnly=true # Only apply changes to out-of-sync resources (useful for large apps)
       - Replace=true # Replace existing resources if they are immutable
+
