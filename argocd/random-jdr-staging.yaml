@@ -1,24 +1,24 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: random-jdr
+  name: random-jdr-staging
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/leogout/random-dnd.git
     path: helm
-    targetRevision: "v0.4.0"
+    targetRevision: "main"
     helm:
       valueFiles:
-        - values-prod.yaml
+        - values-staging.yaml
       parameters:
         - name: 'image.registry'
           value: 'ghcr.io/leogout'
         - name: 'image.tag'
-          value: 'v0.4.0'
+          value: 'latest'
   destination:
-    namespace: random-jdr
+    namespace: random-jdr-staging
     name: in-cluster
   syncPolicy:
     automated:
@@ -28,4 +28,3 @@ spec:
       - CreateNamespace=true # ArgoCD will create the namespace if it doesn't exist
       - ApplyOutOfSyncOnly=true # Only apply changes to out-of-sync resources (useful for large apps)
       - Replace=true # Replace existing resources if they are immutable
-
